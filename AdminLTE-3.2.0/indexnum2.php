@@ -1,3 +1,11 @@
+<?php
+    include '../connect.php';
+    include '../checkLogin.php';
+    $s="select*from reg where id='$_SESSION[id]'";
+    $qu= mysqli_query($con, $s);
+    $f=mysqli_fetch_assoc($qu);
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -188,7 +196,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block" name="user">Alexander Pierceee</a>
+        <?php echo $f['name'];?>
         </div>
       </div>
 

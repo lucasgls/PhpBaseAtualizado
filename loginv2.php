@@ -10,7 +10,7 @@ if(isset($_POST['sub'])){
    if(mysqli_num_rows($qu)>0){
       $f= mysqli_fetch_assoc($qu);
       $_SESSION['id']=$f['id'];
-      header ('location:AdminLTE-3.2.0/index.html');
+      header ('location:AdminLTE-3.2.0/indexnum2.php');
    }
    else{
        echo 'username or password does not exist';
@@ -38,7 +38,7 @@ if(isset($_POST['sub'])){
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="AdminLTE-3.2.0/index2.html"><b>Admin</b>LTE - 3TI</a>
+    <a href="AdminLTE-3.2.0/index2.html"><b>Admin</b>ProvaLPI - 3TI</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
