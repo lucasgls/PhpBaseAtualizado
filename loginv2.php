@@ -10,7 +10,7 @@ if(isset($_POST['sub'])){
    if(mysqli_num_rows($qu)>0){
       $f= mysqli_fetch_assoc($qu);
       $_SESSION['id']=$f['id'];
-      header ('location:AdminLTE-3.2.0/indexnum2.php');
+      header ('indexnum2.php');
    }
    else{
        echo 'username or password does not exist';
@@ -24,7 +24,7 @@ if(isset($_POST['sub'])){
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in test</title>
+  <title>AdminLTE 3 | Log in Outwear</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -38,7 +38,7 @@ if(isset($_POST['sub'])){
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="AdminLTE-3.2.0/index2.html"><b>Admin</b>ProvaLPI - 3TI</a>
+    <a href="index2.php"><b>Admin</b>ProvaLPI - 3TI</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -91,10 +91,10 @@ if(isset($_POST['sub'])){
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
+        <a href="forgot-password.php">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a href="register.php" class="text-center">Register a new membership</a>
       </p>
     </div>
     <!-- /.login-card-body -->
