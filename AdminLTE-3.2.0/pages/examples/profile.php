@@ -1,3 +1,27 @@
+<?php
+include'../../../connect.php';
+if(isset($_POST['sub'])){
+    $t=$_POST['text'];
+    $u=$_POST['user'];
+    $p=$_POST['pass'];
+    $c=$_POST['city'];
+    $g=$_POST['gen'];
+    if($_FILES['f1']['name']){
+    move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
+    $img="image/".$_FILES['f1']['name'];
+    }
+    else{
+        $img=$_POST['img1'];
+    }
+    $i="update reg set name='$t',username='$u',password='$p',city='$c',gender='$g',image='$img' where id='$_SESSION[id]'";
+    mysqli_query($con, $i);
+    header('location:profile.php');
+}
+     $s="select*from reg where id='$_SESSION[id]'";
+    $qu= mysqli_query($con, $s);
+    $f=mysqli_fetch_assoc($qu);
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1147,23 +1171,23 @@
                   <!-- /.tab-pane -->
 
                   <div class="tab-pane" id="settings">
-                    <form class="form-horizontal">
+                    <form method="POST" enctype="multipart/form-data" class="form-horizontal">
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="Name">
+                          <input type="text" class="form-control" id="inputName" placeholder="Nome" name="text" value="<?php echo $f['name']?>">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Username</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                          <input type="text" class="form-control" id="inputEmail" placeholder="Usuario" name="user" value="<?php echo $f['username']?>">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                        <label for="inputName2" class="col-sm-2 col-form-label">Senha</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                          <input type="password" class="form-control" id="inputName2" placeholder="Senha" name="pass" value="<?php echo $f['password']?>">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -1189,7 +1213,7 @@
                       </div>
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Submit</button>
+                          <button name="sub"  type="submit" class="btn btn-danger">Edit</button>
                         </div>
                       </div>
                     </form>
