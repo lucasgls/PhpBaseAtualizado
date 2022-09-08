@@ -49,6 +49,29 @@ INSERT INTO `reg` (`name`, `username`, `password`, `city`, `image`, `gender`, `i
 ('Vinicius Vieira', 'vini', '123', 'Hortolandia', 'viniperfil/images.png', 'male', 2);
 
 --
+-- Estrutura da tabela `reg`
+--
+
+CREATE TABLE `prod` (
+  `NomeProduto` varchar(50) NOT NULL,
+  `PrecoProduto` varchar(50) NOT NULL,
+  `CorProduto` varchar(50) NOT NULL,
+  `TamanhoProduto` varchar(50) NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `prod`
+--
+
+INSERT INTO `prod` (`NomeProduto`, `PrecoProduto`, `CorProduto`, `TamanhoProduto`, `image`, `id`) VALUES
+('Air Jordan 1', 'R$1500,00', 'Vermelho', '41', 'image/images.png', 1);
+
+INSERT INTO `prod` (`NomeProduto`, `PrecoProduto`, `CorProduto`, `TamanhoProduto`, `image`, `id`) VALUES
+('Air Jordan 4', 'R$1000,00', 'Preto', '40', 'image/images.png', 2);
+
+--
 -- Índices para tabelas despejadas
 --
 

@@ -1,3 +1,26 @@
+<?php
+include'../../../connect.php';
+if(isset($_POST['sub'])){
+    $t=$_POST['nomeprod'];
+    $u=$_POST['precoprod'];
+    $p=$_POST['corprod'];
+    $c=$_POST['tamprod'];
+    if($_FILES['f1']['name']){
+    move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
+    $img="image/".$_FILES['f1']['name'];
+    }
+    else{
+        $img=$_POST['img1'];
+    }
+    $i="update prod set name='$t',username='$u',password='$p',city='$c',image='$img' where id='$_SESSION[id]'";
+    mysqli_query($con, $i);
+    header('location:profile.php');
+}
+     $s="select*from prod where id='$_SESSION[id]'";
+    $qu= mysqli_query($con, $s);
+    $f=mysqli_fetch_assoc($qu);
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -855,41 +878,51 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
+                <h3 class="card-title">Cadastro Produto</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form>
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="exampleInputEmail1">Nome do Produto</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome" name="text" value="<?php echo $f['NomeProduto']?>">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="exampleInputPassword1">Preço do Produto</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Preço" name="text" value="<?php echo $f['PrecoProduto']?>">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
+                    <label for="exampleInputPassword1">Cor do Produto</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cor" name="text" value="<?php echo $f['CorProduto']?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Tamanho do Produto</label><br>
+                    <select id="TamanhoProduto" name="tamanho">
+                      <option value="Pequeno">P</option>
+	                    <option value="Medio">M</option>
+		                  <option value="Grande">G</option>
+                      <option value="ExtraGrande">GG</option>
+	                  </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">Foto do Produto</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <label class="custom-file-label" for="exampleInputFile">Foto produto</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
                       </div>
                     </div>
                   </div>
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Cadastrar</button>
+                  <!-- excluir <button type="submit" class="btn btn-">Excluir</button> -->
                 </div>
               </form>
             </div>

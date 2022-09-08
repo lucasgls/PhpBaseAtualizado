@@ -221,27 +221,27 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Mapa do site
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="AdminLTE-3.2.0/index.php" class="nav-link active">
+                <a href="indexnum2.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Pagina Principal</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="AdminLTE-3.2.0/index2.php" class="nav-link">
+                <a href="AdminLTE-3.2.0/pages/examples/profile.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Perfil</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="AdminLTE-3.2.0/index3.php" class="nav-link">
+                <a href="AdminLTE-3.2.0/pages/examples/projects.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p>Produtos</p>
                 </a>
               </li>
             </ul>
