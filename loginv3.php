@@ -19,18 +19,12 @@ if(isset($_POST['sub'])){
 }
 ?>
 
-<?php
-if(isset($_POST['cad'])){
-      header ('location:loginv3.php');
-   }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login Outwear</title>
+  <title>Cadastro Outwear</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -44,12 +38,12 @@ if(isset($_POST['cad'])){
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <p><b>Login</b>OutWear</p>
+    <p><b>Cadastro</b>OutWear</p>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Faça login para acessar</p>
+      <p class="login-box-msg">Faça o seu cadastro para acessar</p>
 
       <form method="post">
         <div class="input-group mb-3">
@@ -71,11 +65,7 @@ if(isset($_POST['cad'])){
         <div class="row">
           <div class="col-12">
             <div class="col-6">
-              <button type="submit" class="btn btn-primary btn-block" name="sub" >Login</button>
-            </div>
-            <p></p>
-            <div class="col-6">
-            <button type="submit" class="btn btn-primary btn-block" name="cad" >Cadastrar</button>
+            <button type="submit" class="btn btn-primary btn-block" name="sub" >Cadastrar</button>
             </div>
           </div>
           <!-- /.col -->
