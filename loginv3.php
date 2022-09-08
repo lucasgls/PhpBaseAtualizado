@@ -1,23 +1,24 @@
 <?php
-
-include'connect.php';
-
+include 'connect.php';
 if(isset($_POST['sub'])){
+    $t=$_POST['text'];
     $u=$_POST['user'];
     $p=$_POST['pass'];
-    $s= "select * from reg where username='$u' and password= '$p'";   
-   $qu= mysqli_query($con, $s);
-   if(mysqli_num_rows($qu)>0){
-      $f= mysqli_fetch_assoc($qu);
-      $_SESSION['id']=$f['id'];
-      header ('location:indexnum2.php');
-   }
-   else{
-       echo 'username or password does not exist';
-   }
-  
+    $c=$_POST['city'];
+    $g=$_POST['gen'];
+    $i="insert into reg(name,username,password,city,gender)value('$t','$u','$p','$c','$g')";
+    mysqli_query($con, $i);
 }
 ?>
+
+<?php
+if(isset($_POST['log'])){
+      header ('location:loginv2.php');
+   }
+?>
+<!--
+
+-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,26 +47,56 @@ if(isset($_POST['sub'])){
       <p class="login-box-msg">Faça o seu cadastro para acessar</p>
 
       <form method="post">
+        <!-- --> <!-- --> <!-- --> <!-- --> <!-- --> <!-- --> <!-- --> <!-- --> <!-- -->
         <div class="input-group mb-3">
-          <input type="Text" class="form-control" placeholder="Username" name="user">
+          <input type="text" class="form-control" placeholder="Nome Completo" name="text">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
+        <!-- --> <!-- --> <!-- -->
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name="pass">
+          <input type="text" class="form-control" placeholder="Usuario" name="user">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <!-- --> <!-- --> <!-- -->
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Senha" name="pass">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+        <!-- --> <!-- --> <!-- -->
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Cidade" name="city">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <!-- --> <!-- --> <!-- -->
+        <div class="input-group mb-3">
+            <input type="radio"name="gen" id="gen" value="male">male
+            <input type="radio" name="gen" id="gen" value="female">female
+        </div>
+        <!-- --> <!-- --> <!-- --> <!-- --> <!-- --> <!-- --> <!-- --> <!-- --> <!-- -->
         <div class="row">
           <div class="col-12">
             <div class="col-6">
             <button type="submit" class="btn btn-primary btn-block" name="sub" >Cadastrar</button>
+            </div>
+            <p></p>
+            <div class="col-6">
+            <button type="submit" class="btn btn-primary btn-block" name="log" >Voltar ao login</button>
             </div>
           </div>
           <!-- /.col -->
