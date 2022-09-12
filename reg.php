@@ -40,7 +40,12 @@ if(isset($_POST['sub'])){
                         password
                         <input type="password" name="pass">
                     </td>
+                    <td>
+                        <input type="submit" value="submit" name="sub">
+                               
+                    </td>
                 </tr>
+               
                 <tr>
                     <td>
                         city

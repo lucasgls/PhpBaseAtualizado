@@ -12,7 +12,7 @@ if(isset($_POST['sub'])){
     else{
         $img=$_POST['img1'];
     }
-    $i="update prod set name='$t',username='$u',password='$p',city='$c',image='$img' where id='$_SESSION[id]'";
+    $i="update prod set nomeprod='$t',precoprod='$u',corprod='$p',tamprod='$c',image='$img' where id='$_SESSION[id]'";
     mysqli_query($con, $i);
     header('location:profile.php');
 }
@@ -886,19 +886,19 @@ if(isset($_POST['sub'])){
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nome do Produto</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome" name="text" value="<?php echo $f['NomeProduto']?>">
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome" name="nomeprod">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Preço do Produto</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Preço" name="text" value="<?php echo $f['PrecoProduto']?>">
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Preço" name="precoprod">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Cor do Produto</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cor" name="text" value="<?php echo $f['CorProduto']?>">
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cor" name="corprod">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Tamanho do Produto</label><br>
-                    <select id="TamanhoProduto" name="tamanho">
+                    <select id="TamanhoProduto" name="tamprod">
                       <option value="Pequeno">P</option>
 	                    <option value="Medio">M</option>
 		                  <option value="Grande">G</option>
@@ -921,7 +921,7 @@ if(isset($_POST['sub'])){
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Cadastrar</button>
+                  <button type="submit" class="btn btn-primary" name="sub">Cadastrar</button>
                   <!-- excluir <button type="submit" class="btn btn-">Excluir</button> -->
                 </div>
               </form>
